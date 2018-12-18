@@ -1,0 +1,5 @@
+@import "./vueBurgerMenu.css";
+
+body {
+  transition: 0.25s ease-in-out;
+}

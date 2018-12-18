@@ -1,0 +1,20 @@
+/*
+This part overrides the vue-burger-menu drawer style
+
+See the doc here : https://github.com/mbj36/vue-burger-menu#styling
+ */
+
+div .bm-menu {
+    background-color: white;
+    padding-top: 24px;
+    z-index: 2;
+}
+
+nav.bm-item-list {
+    margin: 0;
+}
+
+nav.bm-item-list>* {
+    padding: 0;
+    margin: 0;
+}

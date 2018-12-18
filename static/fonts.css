@@ -1,0 +1,31 @@
+@font-face {
+  font-family: voodoo-text-regular;
+  src: local('Lato'), local('Lato Regular'), url('../font/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: voodoo-text-light;
+  src: local('Lato Light'), url('../font/Lato-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: voodoo-text-bold;
+  src: local('Lato Bold'), url('../font/Lato-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: voodoo-title;
+  src: local('Hartwell'), url('../font/Hartwell.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}

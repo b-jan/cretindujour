@@ -1,29 +1,72 @@
 {
-  "name": "cretindujour",
+  "name": "voodoo.io",
   "version": "1.0.0",
-  "description": "Cretin du jour, Bonjours !",
-  "author": "b-jan",
+  "description": "We help you create hit game",
+  "author": "Voodoo",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "analyze": "nuxt build --analyze",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore --fix .",
+    "test": "ava --serial --verbose",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0"
+    "node-sass": "^4.10.0",
+    "nuxt": "^2.0.0",
+    "nuxt-device-detect": "^1.1.2",
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "sass-loader": "^7.1.0",
+    "vue-burger-menu": "^1.0.9",
+    "vue-scroll-reveal": "^1.0.11"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "ava": "^0.25.0",
     "babel-eslint": "^8.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-env": "^3.2.5",
     "eslint": "^5.0.1",
+    "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.0.0",
+    "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.0.0",
-    "node-sass": "^4.10.0",
-    "sass-loader": "^7.1.0"
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "nodemon": "^1.11.0",
+    "prettier": "1.14.3",
+    "require-extension-hooks": "^0.3.3",
+    "require-extension-hooks-babel": "^0.1.1",
+    "require-extension-hooks-vue": "^1.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --ext .js,.vue --ignore-path .gitignore --fix",
+      "git add"
+    ]
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "snapshotDir": "./test/snapshots"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }

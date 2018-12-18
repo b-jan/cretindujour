@@ -1,0 +1,15 @@
+@mixin voodoo-transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin voodoo-transform($transform-function) {
+  -webkit-transform: $transform-function;
+  -moz-transform: $transform-function;
+  -ms-transform: $transform-function;
+  -o-transform: $transform-function;
+  transform: $transform-function;
+}
