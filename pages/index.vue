@@ -1,39 +1,39 @@
 <template>
   <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        cretindujour
-      </h1>
-      <h2 class="subtitle">
-        Cretin du jour, Bonjours !
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <div>Crétin du jour : {{ todayList.name }}</div>
+    <div
+      v-for="card in cards"
+      :key="card.id"
+    >
+      <p>{{ card.name }}</p>
+      <img
+        :src="card.imageUrl"
+        :alt="card.name"
+        class="card__image"
+      >
+      <p>{{ card.desc }}</p>
+      <button @click="() => upvote(card.id)">+</button>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapActions } from 'vuex'
 
 export default {
-  components: {
-    Logo
+  computed: {
+    todayList() { return this.$store.state.todayList },
+    cards() { return this.$store.state.cards }
+  },
+  methods: {
+    ...mapActions([
+      'upvote'
+    ])
   }
 }
 </script>
 
-<style>
-
+<style lang="scss">
 .container {
   min-height: 100vh;
   display: flex;
@@ -42,25 +42,10 @@ export default {
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.card {
+  &__image {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>
