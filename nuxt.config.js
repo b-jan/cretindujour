@@ -1,5 +1,11 @@
 const pkg = require('./package')
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/cretindujour/'
+  }
+} : {}
+
 module.exports = {
   mode: 'universal',
 
@@ -25,6 +31,7 @@ module.exports = {
   },
 
   router: {
+    ...routerBase,
     linkActiveClass: '',
     linkExactActiveClass: 'active-link'
   },
